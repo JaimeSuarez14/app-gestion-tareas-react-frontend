@@ -64,10 +64,9 @@ const DashboardLayout = () => {
   ];
   return (
     <div className={"min-h-screen bg-green-950 text-white flex relative"}>
-
       <div className={`absolute top-0 left-0 p-0 ${isOpen ? 'hidden' : 'group'}`}>
         <button className="p-0" >
-          < BiMenuAltLeft className="text-right p-2 hover:text-amber-800 z-10 text-5xl bg-amber-400 rounded-br-3xl" onClick={handleIsOpen} />
+          < BiMenuAltLeft className="text-right p-2 hover:text-amber-800 z-10 text-4xl bg-amber-400 rounded-br-3xl" onClick={handleIsOpen} />
         </button>
         <div className="hidden group-hover:block absolute top-9 left-0 w-fit">
           {
@@ -131,8 +130,6 @@ const DashboardLayout = () => {
             Cerrar Sesión
           </button>
         </nav>
-
-
 
       </aside>
       <Outlet />
