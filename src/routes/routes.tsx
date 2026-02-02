@@ -12,6 +12,7 @@ import PanelPrincipal from "../pages/dashboard/tareas/panelPrincipal";
 import CrearTarea from "../pages/dashboard/tareas/crearTarea";
 import { ListaTareas } from "../pages/dashboard/tareas/listaTareas";
 import DetalleTarea from "../pages/dashboard/tareas/detalleTarea";
+import MenuOpciones from "../pages/dashboard/tareas/menuOpciones";
 
 const RouterF = () => {
   return (
@@ -22,6 +23,7 @@ const RouterF = () => {
           <Route index element={<Home />} />
           <Route path="tareas" element={<Tareas />} >
             <Route index element={<PanelPrincipal />} />
+            <Route path="menu" element={<MenuOpciones />} />
             <Route path="create" element={<CrearTarea />} />
             <Route path="lista" element={<ListaTareas />} />
             <Route path="ver_tarea/:id" element={<DetalleTarea />} />

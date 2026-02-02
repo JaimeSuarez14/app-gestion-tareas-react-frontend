@@ -2,7 +2,7 @@ import { MdAddTask } from "react-icons/md";
 import { FaTasks } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { SlOptions } from "react-icons/sl";
 
 const PanelPrincipal = () => {
@@ -44,7 +44,8 @@ const PanelPrincipal = () => {
           </div>
         ))}
         <div>
-          <p className="inline m-4">Ver todas las opciones </p><SlOptions className="inline text-2xl hover:text-green-700 hover:cursor-pointer" />
+          <p className="inline m-4">Ver todas las opciones </p>
+          <Link to={"/dashboard/tareas/menu"}><SlOptions className="inline text-2xl hover:text-green-700 hover:cursor-pointer" /></Link>
         </div>
       </div>
     </div>
