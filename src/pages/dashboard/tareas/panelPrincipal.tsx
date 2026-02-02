@@ -3,6 +3,7 @@ import { FaTasks } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { NavLink } from "react-router";
+import { SlOptions } from "react-icons/sl";
 
 const PanelPrincipal = () => {
   const listaPrincipal = [
@@ -42,6 +43,9 @@ const PanelPrincipal = () => {
             </NavLink>
           </div>
         ))}
+        <div>
+          <p className="inline m-4">Ver todas las opciones </p><SlOptions className="inline text-2xl hover:text-green-700 hover:cursor-pointer" />
+        </div>
       </div>
     </div>
   );

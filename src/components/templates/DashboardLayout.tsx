@@ -62,62 +62,23 @@ const DashboardLayout = () => {
   return (
     <div className={"min-h-screen bg-green-950 text-white flex relative"}>
 
-      {
-        !isOpen ?
-          <div className="group">
-            <button className="absolute top-0 left-0 p-0" >
-              < BiMenuAltLeft className="text-right p-2 hover:text-amber-800 z-10 text-5xl bg-amber-400 rounded-br-3xl" onClick={handleIsOpen} />
-            </button>
-            <div className="hidden group-hover:block absolute top-9 left-0">
-              {
-                <nav className="mt-4 flex flex-col gap-3">
-                  {rutas.map((item) => (
-                    <NavLink
-                      key={item}
-                      to={`${item == "/" ? "/dashboard" : "/dashboard/" + item}`}
-                      end={item === "/"}   // 🔥 CLAVE
-                      className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl   transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
-                    >
-                      {`${item == "/" ? "Home" : item}`}
-                    </NavLink>
-                  ))}
-
-                  <button
-                    onClick={handleLogout}
-                    className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize"
-                  >
-                    Cerrar Sesión
-                  </button>
-                </nav>
-              }
-            </div>
-          </div>
-          :
-          <aside className="w-72 bg-black/50 backdrop-blur-xl border-l border-white/10 px-8 py-2 flex flex-col gap-6 shadow-2xl">
-            <div>
-              <h1 className="text-2xl font-bold tracking-wide flex justify-between items-center">
-                Dashboard
-                <BiDockLeft className="inline text-right -mr-2 hover:text-amber-400" onClick={handleIsOpen} />
-
-              </h1>
-              <h1 className="text-ms font-normal tracking-wide"><FaRegUser className="inline mr-2" />{username}</h1>
-              <h1 className="text-ms font-normal text-amber-300 tracking-wide">{role}</h1>
-              {error && <p className="text-red-600 text-sm font-bold">{error}</p>}
-            </div>
-
+      <div className={`absolute top-0 left-0 p-0 ${isOpen ? 'hidden' : 'group'}`}>
+        <button className="p-0" >
+          < BiMenuAltLeft className="text-right p-2 hover:text-amber-800 z-10 text-5xl bg-amber-400 rounded-br-3xl" onClick={handleIsOpen} />
+        </button>
+        <div className="hidden group-hover:block absolute top-9 left-0 w-fit">
+          {
             <nav className="mt-4 flex flex-col gap-3">
-              {rutas.map((item) =>{
-                const path = item === "/" ? "/dashboard" : `/dashboard/${item}`;
-                 return (<NavLink
+              {rutas.map((item) => (
+                <NavLink
                   key={item}
-                  to={path}
+                  to={`${item == "/" ? "/dashboard" : "/dashboard/" + item}`}
                   end={item === "/"}   // 🔥 CLAVE
-
                   className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl   transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
                 >
                   {`${item == "/" ? "Home" : item}`}
                 </NavLink>
-              )})}
+              ))}
 
               <button
                 onClick={handleLogout}
@@ -126,11 +87,47 @@ const DashboardLayout = () => {
                 Cerrar Sesión
               </button>
             </nav>
+          }
+        </div>
+      </div>
+
+      <aside className={`bg-black/50 backdrop-blur-xl border-l border-white/10  shadow-2xl transition-all duration-300 overflow-hidden ${isOpen ? 'w-72 px-8 py-2 flex flex-col gap-6' : 'w-0'}`}>
+        <div>
+          <h1 className="text-2xl font-bold tracking-wide flex justify-between items-center">
+            Dashboard
+            <BiDockLeft className="inline text-right -mr-2 hover:text-amber-400" onClick={handleIsOpen} />
+
+          </h1>
+          <h1 className="text-ms font-normal tracking-wide"><FaRegUser className="inline mr-2" />{username}</h1>
+          <h1 className="text-ms font-normal text-amber-300 tracking-wide">{role}</h1>
+          {error && <p className="text-red-600 text-sm font-bold">{error}</p>}
+        </div>
+
+        <nav className="mt-4 flex flex-col gap-3">
+          {rutas.map((item) =>{
+            const path = item === "/" ? "/dashboard" : `/dashboard/${item}`;
+             return (<NavLink
+              key={item}
+              to={path}
+              end={item === "/"}   // 🔥 CLAVE
+
+              className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl   transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
+            >
+              {`${item == "/" ? "Home" : item}`}
+            </NavLink>
+          )})}
+
+          <button
+            onClick={handleLogout}
+            className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize"
+          >
+            Cerrar Sesión
+          </button>
+        </nav>
 
 
 
-          </aside>
-      }
+      </aside>
       <Outlet />
     </div>
   );

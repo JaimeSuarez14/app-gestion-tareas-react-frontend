@@ -3,6 +3,7 @@ import type { RootState } from "../../../lib/store/store";
 import { useSelector } from "react-redux";
 import { Link } from "react-router";
 import { MdAddTask } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
 
 const CrearTarea = () => {
   const { id } = useSelector((state: RootState) => state.user);
@@ -74,9 +75,9 @@ const CrearTarea = () => {
       <div className="p-5">
         <Link
           to={"/dashboard/tareas/lista"}
-          className="w-full bg-orange-600 hover:bg-blue-700 text-white px-2 py-1 rounded-lg font-semibold transition"
+          className="w-fit gap-2 items-center bg-orange-600 hover:bg-blue-700 text-white px-2 py-1 rounded-lg font-semibold transition flex"
         >
-          Ver Tareas
+          <FaEye /> <span>Ver Tareas</span>
         </Link>
       </div>
       <form
