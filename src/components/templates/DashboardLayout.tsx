@@ -8,6 +8,9 @@ import { FaRegUser } from "react-icons/fa";
 import type { AxiosError } from "axios";
 import { BiDockLeft } from "react-icons/bi";
 import { BiMenuAltLeft } from "react-icons/bi";
+import { FaHome } from "react-icons/fa";
+import { GoTasklist } from "react-icons/go";
+import { CiLogout } from "react-icons/ci";
 
 
 const DashboardLayout = () => {
@@ -53,11 +56,11 @@ const DashboardLayout = () => {
   };
 
   const rutas = [
-    "/",
-    "tareas",
-    "usuarios",
-    "fetch-post",
-    "register",
+    {path : "/",icon: <FaHome />},
+    {path : "tareas",icon: <GoTasklist />},
+    {path: "usuarios",icon: <FaRegUser />},
+    {path: "fetch-post",icon: <GoTasklist />},
+    {path: "register",icon: <GoTasklist />},
   ];
   return (
     <div className={"min-h-screen bg-green-950 text-white flex relative"}>
@@ -71,20 +74,22 @@ const DashboardLayout = () => {
             <nav className="mt-4 flex flex-col gap-3">
               {rutas.map((item) => (
                 <NavLink
-                  key={item}
-                  to={`${item == "/" ? "/dashboard" : "/dashboard/" + item}`}
-                  end={item === "/"}   // 🔥 CLAVE
-                  className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl   transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
+                  key={item.path}
+                  to={`${item.path == "/" ? "/dashboard" : "/dashboard/" + item.path}`}
+                  end={item.path === "/"}   // 🔥 CLAVE
+                  className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl flex items-center gap-2 transition capitalize ${isActive ?  "bg-amber-950": " bg-black hover:bg-white/20"}` }
                 >
-                  {`${item == "/" ? "Home" : item}`}
+                  {item.icon}
+                  <span>{`${item.path == "/" ? "Home" : item.path}`}</span>
                 </NavLink>
               ))}
 
               <button
                 onClick={handleLogout}
-                className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize"
+                className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize flex items-center gap-2"
               >
-                Cerrar Sesión
+              <CiLogout />
+              <span>Cerrar Sesión</span>  
               </button>
             </nav>
           }
@@ -105,22 +110,24 @@ const DashboardLayout = () => {
 
         <nav className="mt-4 flex flex-col gap-3">
           {rutas.map((item) =>{
-            const path = item === "/" ? "/dashboard" : `/dashboard/${item}`;
+            const path = item.path === "/" ? "/dashboard" : `/dashboard/${item.path}`;
              return (<NavLink
-              key={item}
+              key={item.path}
               to={path}
-              end={item === "/"}   // 🔥 CLAVE
+              end={item.path === "/"}   // 🔥 CLAVE
 
-              className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl   transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
+              className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl flex items-center gap-2 transition capitalize ${isActive ?  "bg-amber-950": " bg-black/50 hover:bg-white/20"}` }
             >
-              {`${item == "/" ? "Home" : item}`}
+              {item.icon}
+              <span>{`${item.path == "/" ? "Home" : item.path}`}</span>
             </NavLink>
           )})}
 
           <button
             onClick={handleLogout}
-            className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize"
+            className="text-left px-4 py-2 rounded-xl bg-red-700 hover:opacity-90 cursor-pointer transition capitalize flex items-center gap-2"
           >
+            <CiLogout />
             Cerrar Sesión
           </button>
         </nav>
