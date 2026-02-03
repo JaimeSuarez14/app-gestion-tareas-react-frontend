@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 import { FaCirclePlus } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { IoCalendarNumberOutline } from "react-icons/io5";
@@ -7,9 +7,9 @@ import { CiFilter } from "react-icons/ci";
 
 const MenuOpciones = () => {
   return (
-    <div className="w-full">
-      <section>
-        <ul>
+    <div className="w-full grid  md:grid-cols-4 ">
+      <section className="col-span-1">
+        <ul className="flex flex-col gap-3">
           <li>
             <Link to="" className="group hover:font-medium">
               <FaCirclePlus className="inline mr-1 group-hover:text-green-600" />
@@ -41,6 +41,10 @@ const MenuOpciones = () => {
             </Link>
           </li>
         </ul>
+      </section>
+
+      <section className="col-span-3">
+      <Outlet />
       </section>
     </div>
   );
