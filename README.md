@@ -1,8 +1,9 @@
 # Proyecto de Gestión de Tareas
 
 ![Badge en construcción](https://img.shields.io/badge/estado-en%20construcción-yellow)
-![Versión de React](https://img.shields.io/npm/v/react?label=react)
-![Versión de Vite](https://img.shields.io/npm/v/vite?label=vite)
+![Versión de React](https://img.shields.io/npm/v/react?logo=react&label=react)
+![Versión de TypeScript](https://img.shields.io/npm/v/typescript?logo=typescript&label=typescript)
+![Versión de Vite](https://img.shields.io/npm/v/vite?logo=vite&label=vite)
 
 Este es el frontend de una aplicación de gestión de tareas construida con React, Vite y TypeScript.
 
