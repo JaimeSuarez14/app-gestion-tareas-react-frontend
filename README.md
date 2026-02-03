@@ -1,77 +1,74 @@
-# React + TypeScript + Vite
+# Proyecto de Gestión de Tareas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Badge en construcción](https://img.shields.io/badge/estado-en%20construcción-yellow)
+![Versión de React](https://img.shields.io/npm/v/react?label=react)
+![Versión de Vite](https://img.shields.io/npm/v/vite?label=vite)
 
-Currently, two official plugins are available:
+Este es el frontend de una aplicación de gestión de tareas construida con React, Vite y TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
 
-## React Compiler
+*   **Autenticación de usuarios:** Registro e inicio de sesión.
+*   **Gestión de tareas:** Crear, listar, ver detalles de tareas.
+*   **Panel de control:** Visualización principal de las tareas.
+*   **Rutas protegidas:** Solo los usuarios autenticados pueden acceder al panel de control.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Estructura del Proyecto
 
-## Expanding the ESLint configuration
+El proyecto está organizado de la siguiente manera:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+/
+├── public/               # Archivos estáticos
+├── src/
+│   ├── assets/           # Imágenes y otros recursos
+│   ├── components/       # Componentes reutilizables
+│   ├── lib/              # Librerías y utilidades (Redux store)
+│   ├── pages/            # Componentes de página
+│   ├── routes/           # Configuración de enrutamiento
+│   ├── services/         # Lógica de comunicación con la API
+│   ├── App.tsx           # Componente raíz de la aplicación
+│   ├── main.tsx          # Punto de entrada de la aplicación
+│   └── ...
+├── .gitignore
+├── package.json          # Dependencias y scripts del proyecto
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts Disponibles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+En el directorio del proyecto, puedes ejecutar:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-- npm i @reduxjs/toolkit react-redux
-- npm i redux-persist
-- npm install react-icons --save
-- npm install recharts
+### `npm run dev`
+
+Ejecuta la aplicación en modo de desarrollo.
+Abre [http://localhost:5173](http://localhost:5173) para verla en tu navegador.
+
+### `npm run build`
+
+Compila la aplicación para producción en la carpeta `dist`.
+
+### `npm run lint`
+
+Ejecuta el linter para revisar el código en busca de errores.
+
+### `npm run preview`
+
+Ejecuta la aplicación compilada en producción.
+
+## Dependencias Clave
+
+*   **React:** Biblioteca para construir interfaces de usuario.
+*   **Vite:** Herramienta de construcción rápida para desarrollo web moderno.
+*   **TypeScript:** Superset de JavaScript que añade tipado estático.
+*   **React Router:** Para el enrutamiento en la aplicación.
+*   **Redux Toolkit:** Para la gestión del estado de la aplicación.
+*   **Axios:** Para realizar peticiones HTTP al backend.
+*   **Tailwind CSS:** Framework de CSS para un diseño rápido y personalizado.
+
+## Endpoints de la API
+
+La aplicación se comunica con un backend a través de los siguientes endpoints base:
+
+*   **Autenticación:** `http://localhost:3000/api/auth/`
+*   **Tareas:** `http://localhost:3000/api/tarea/`
