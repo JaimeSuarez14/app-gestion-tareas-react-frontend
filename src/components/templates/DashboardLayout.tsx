@@ -11,6 +11,9 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
 import { GoTasklist } from "react-icons/go";
 import { CiLogout } from "react-icons/ci";
+import { MdOutlineSettings } from "react-icons/md";
+import { BsBuildingCheck } from "react-icons/bs";
+
 
 
 const DashboardLayout = () => {
@@ -59,8 +62,9 @@ const DashboardLayout = () => {
     {path : "/",icon: <FaHome />},
     {path : "tareas",icon: <GoTasklist />},
     {path: "usuarios",icon: <FaRegUser />},
-    {path: "fetch-post",icon: <GoTasklist />},
+    {path: "proyects",icon: <BsBuildingCheck />},
     {path: "register",icon: <GoTasklist />},
+    {path: "ajustes",icon: <MdOutlineSettings />},
   ];
   return (
     <div className={"min-h-screen bg-green-950 text-white flex relative"}>

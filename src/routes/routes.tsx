@@ -31,7 +31,7 @@ const RouterF = () => {
             <Route path="ver_tarea/:id" element={<DetalleTarea />} />
           </Route>
           <Route path="usuarios" element={<GestionUsuarios />} />
-          <Route path="fetch-post" element={<Post />} />
+          <Route path="proyects" element={<Post />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
