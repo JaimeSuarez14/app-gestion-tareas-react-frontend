@@ -3,6 +3,7 @@ import authService from "../../services/auth/authsevices";
 import type { User } from "../../lib/types/User";
 import { useNavigate } from "react-router";
 import { FaUsers } from "react-icons/fa";
+import TituloPanel from "../../components/organisms/tituloPanel";
 
 const GestionUsuarios = () => {
   const navigate = useNavigate();
@@ -41,11 +42,8 @@ const GestionUsuarios = () => {
   },[]);
 
   return (
-    <div className="w-full">
-      <h1 className="text-center text-2xl py-3 font-bold">
-        <FaUsers className="inline mr-2" />
-        Lista de Usuarios
-      </h1>
+    <div className="w-full sm:px-8">
+      <TituloPanel titulo="Lista de Usuarios" iconTypea={<FaUsers />} description="Visualizar la lista de usuarios" />
       <hr className="py-5" />
       {loading && (
         <p className="text-green-500 text-lg py-8 text-center">{loading}</p>
