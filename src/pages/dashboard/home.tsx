@@ -78,12 +78,12 @@ const data = [
 export default function Home() {
   return (
     <main className="flex-1 flex flex-col items-center justify-center p-10 w-full gap-5">
-      <div className="grid grid-cols-4 gap-4 w-full">
-        <div className="p-2 border w-full h-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+        <div className="p-2 border w-full h-full bg-blue-600 ">
           <h2 className="py-4 text-2xl font-bold tracking-wide text-center">
-            Agente de Tareas
+            Tareas Registradas
           </h2>
-          <p>12.500</p>
+          <p className="text-center font-bold py-3 text-2xl">12.500</p>
         </div>
         <div className="p-2 border w-full h-full">
           <h2 className="py-4 text-2xl font-bold tracking-wide text-center">
@@ -106,8 +106,8 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-4 gap-4 w-full">
-        <div className="col-span-3 border w-full h-full">wwwww</div>
-        <div className="col-span-1 p-4 bg-amber-700/50">
+        <div className="col-span-4 md:col-span-2  border w-full h-full">wwwww</div>
+        <div className="col-span-4 md:col-span-2  p-4 bg-amber-700/50">
           <div className="overflow-x-auto w-full">
             <p className="text-2xl font-bold tracking-wide py-2 ">
               Lista de cursos
@@ -139,7 +139,7 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-4 gap-4 w-full">
-        <div className="col-span-1 border-2 w-full h-full p-4 bg-black">
+        <div className="col-span-4 md:col-span-1 border-2 w-full h-full p-4 bg-black">
           <h2>Diagrama 1</h2>
           <div className="mt-4 text-sm">
             <LineChart
@@ -155,7 +155,7 @@ export default function Home() {
             </LineChart>
           </div>
         </div>
-        <div className="col-span-2 border-2 w-full h-full p-4 bg-orange-950">
+        <div className="col-span-4 md:col-span-2 border-2 w-full h-full p-4 bg-orange-950">
           <h2>Diagrama 2</h2>
           <div className="">
             <LineChart
@@ -186,7 +186,7 @@ export default function Home() {
             </LineChart>
           </div>
         </div>
-        <div className="col-span-1 border-2 w-full h-full p-4 bg-black">
+        <div className="col-span-4 md:col-span-1 border-2 w-full h-full p-4 bg-black">
           <h2>Diagrama 3</h2>
           <div className="">
             <LineChart

@@ -76,7 +76,7 @@ const DashboardLayout = () => {
                   key={item.path}
                   to={`${item.path == "/" ? "/dashboard" : "/dashboard/" + item.path}`}
                   end={item.path === "/"}   // 🔥 CLAVE
-                  className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl flex items-center gap-2 transition capitalize ${isActive ?  "bg-amber-950": " bg-black hover:bg-white/20"}` }
+                  className={({ isActive }: NavLinkRenderProps) => `text-left px-4 py-2 rounded-xl flex items-center gap-2 transition capitalize ${isActive ?  "bg-amber-950": " bg-black hover:bg-white hover:text-black"}` }
                 >
                   {item.icon}
                   <span>{`${item.path == "/" ? "Home" : item.path}`}</span>
