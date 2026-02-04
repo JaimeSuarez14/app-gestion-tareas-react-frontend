@@ -80,7 +80,7 @@ export default function Home() {
     <main className="flex-1 flex flex-col items-center justify-center p-10 w-full gap-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
         <div className="p-2 border w-full h-full bg-blue-600 ">
-          <h2 className="py-4 text-2xl font-bold tracking-wide text-center">
+          <h2 className="py-4 md:text-xl font-bold tracking-wide text-center">
             Tareas Registradas
           </h2>
           <p className="text-center font-bold py-3 text-2xl">12.500</p>

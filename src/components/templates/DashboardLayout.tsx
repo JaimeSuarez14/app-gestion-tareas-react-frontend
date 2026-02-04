@@ -98,7 +98,7 @@ const DashboardLayout = () => {
       <aside className={`bg-black/50 backdrop-blur-xl border-l border-white/10  shadow-2xl transition-all duration-300 overflow-hidden ${isOpen ? 'w-72 px-8 py-2 flex flex-col gap-6' : 'w-0'}`}>
         <div>
           <h1 className="text-2xl font-bold tracking-wide flex justify-between items-center">
-            Dashboard
+            TaskApp
             <BiDockLeft className="inline text-right -mr-2 hover:text-amber-400" onClick={handleIsOpen} />
 
           </h1>
