@@ -4,9 +4,9 @@ const PanelSuperior = () => {
 
   const listItems = [
     {nombre: "Tareas Registradas" ,  value: 20},
-    {nombre: "Tareas Registradas" ,  value: 20},
-    {nombre: "Tareas Registradas" ,  value: 20},
-    {nombre: "Tareas Registradas" ,  value: 20},
+    {nombre: "Tareas Registradas 2" ,  value: 20},
+    {nombre: "Tareas Registradas 3" ,  value: 20},
+    {nombre: "Tareas Registradas 4" ,  value: 20},
   ]
 
   return (

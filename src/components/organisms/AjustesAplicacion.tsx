@@ -42,6 +42,7 @@ const AjustesAplicacion: React.FC = () => {
       setSuccess('Configuración de aplicación guardada correctamente');
     } catch (err) {
       // Error handling
+      console.log(err);
     } finally {
       setLoading(false);
     }
