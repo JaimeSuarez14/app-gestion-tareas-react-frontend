@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
 import authService from '../../services/auth/authsevices';
+import { FaUserPlus } from "react-icons/fa6";
+
 
 interface ModalCrearUsuarioProps {
   isOpen: boolean;
@@ -33,8 +35,8 @@ const ModalCrearUsuario: React.FC<ModalCrearUsuarioProps> = ({ isOpen, onClose, 
       onUserCreated();
       onClose();
       setFormData({ username: '', email: '', password: '', role: 'user' });
-    } catch (err) {
-      setError('Error al crear usuario');
+    } catch (err) { 
+      setError('Error al crear usuario '+ err);
     } finally {
       setLoading(false);
     }
@@ -43,9 +45,10 @@ const ModalCrearUsuario: React.FC<ModalCrearUsuarioProps> = ({ isOpen, onClose, 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300">
+    <div className="fixed inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300">
       <div className="bg-white text-black rounded-lg p-6 w-full max-w-md transform transition-transform duration-300 scale-100">
-        <h2 className="text-xl font-bold mb-4">Crear Nuevo Usuario</h2>
+        <h2 className="text-xl font-bold mb-4 flex gap-2 items-center">
+          <FaUserPlus /> <span>Crear Nuevo Usuario</span></h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium mb-1">Usuario</label>

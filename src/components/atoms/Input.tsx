@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 interface InputProps {
   type?: string;
   placeholder?: string;
@@ -17,7 +18,7 @@ const Input: React.FC<InputProps> = ({ type = 'text', placeholder, value, onChan
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ${className}`}
+      className={`px-3 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ${className}`}
       name={name}
       required={required}
     />
