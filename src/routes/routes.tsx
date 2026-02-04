@@ -2,6 +2,7 @@ import Home from "../pages/dashboard/home";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Tareas from "../pages/dashboard/tareas";
 import GestionUsuarios from "../pages/dashboard/gestionUsuarios";
+import Ajustes from "../pages/dashboard/ajustes";
 import Post from "../pages/dashboard/ObtenerPost";
 import Login from "../pages/login";
 import Register from "../pages/register";
@@ -31,6 +32,7 @@ const RouterF = () => {
             <Route path="ver_tarea/:id" element={<DetalleTarea />} />
           </Route>
           <Route path="usuarios" element={<GestionUsuarios />} />
+          <Route path="ajustes" element={<Ajustes />} />
           <Route path="proyects" element={<Post />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
