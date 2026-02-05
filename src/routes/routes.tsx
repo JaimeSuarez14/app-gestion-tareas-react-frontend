@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Tareas from "../pages/dashboard/tareas";
 import GestionUsuarios from "../pages/dashboard/gestionUsuarios";
 import Ajustes from "../pages/dashboard/ajustes";
-import Post from "../pages/dashboard/ObtenerPost";
+import Proyectos from "../pages/dashboard/ProyectosPage";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import DashboardLayout from "../components/templates/DashboardLayout";
@@ -33,7 +33,7 @@ const RouterF = () => {
           </Route>
           <Route path="usuarios" element={<GestionUsuarios />} />
           <Route path="ajustes" element={<Ajustes />} />
-          <Route path="proyects" element={<Post />} />
+          <Route path="proyects" element={<Proyectos />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
