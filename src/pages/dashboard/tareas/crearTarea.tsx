@@ -64,7 +64,7 @@ const CrearTarea = () => {
       setForm({ name: "", description: "", userBy: "" });
       setFile(null);
     } catch (error) {
-      setMessage(error.message);
+      setMessage(error.message as string);
     } finally {
       setLoading(false);
     }
@@ -112,7 +112,7 @@ const CrearTarea = () => {
         />
 
         <div className="col-span-full text-black">
-          <label htmlFor="cover-photo" className="block text-sm/6 font-medium ">Agregar Imagen</label>
+          <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-700">Agregar Imagen</label>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-500 px-6 py-10">
             <div className="text-center">
               <svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true" className="mx-auto size-12 text-gray-600">

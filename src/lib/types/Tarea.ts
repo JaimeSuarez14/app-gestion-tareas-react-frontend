@@ -1,3 +1,4 @@
+import type { Proyecto } from "./Proyecto";
 import type { User } from "./User";
 
 export type TareaState = 'pending' | 'completed' | 'canceled';
@@ -21,6 +22,7 @@ export interface TareaDetails {
   imageBy: {
     url: string
   } | null;
+  proyectoBy: Proyecto, 
   state: TareaState;
   createdAt: string;
   updatedAt: string;
