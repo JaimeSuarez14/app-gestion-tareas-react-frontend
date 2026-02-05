@@ -10,7 +10,7 @@ const TituloPanel = ({
   description: string
 }) => {
   return (
-    <div className="flex flex-col border-b sm:flex-row justify-center sm:justify-between items-center sm:items-start gap-4 sm:gap-2 text-center sm:text-left w-full">
+    <div className="flex py-2 flex-col border-b sm:flex-row justify-center sm:justify-between items-center sm:items-start gap-4 sm:gap-2 text-center sm:text-left w-full">
       <div className="flex-1 min-w-0 sm:flex-initial">
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 truncate flex items-center gap-2">
           {iconTypea }

@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import type { Proyecto } from "../../lib/types/Proyecto";
 import ProyectoService from "../../services/proyecto/proyectoServices";
+import TituloPanel from "../../components/organisms/tituloPanel";
+import { BsBuildingCheck } from "react-icons/bs";
 
 const Proyectos = () => {
   const [proyectos, setProyectos] = useState<Proyecto[]>([]);
@@ -14,8 +16,9 @@ const Proyectos = () => {
     const fetchProyectos = async () => {
       try {
         setLoading(true);
-        const response = await proyectoService.getAll();
-        setProyectos(response.data);
+        const response = await proyectoService.getAll();       
+        const proy = (await response.data.proyectos) as Proyecto[] || [];     
+        setProyectos(proy || []);
         setError(null);
       } catch (err) {
         console.error("Error al cargar proyectos:", err);
@@ -45,11 +48,9 @@ const Proyectos = () => {
   }
 
   return (
-    <div className="w-full h-full p-6 bg-gradient-to-br from-slate-900 to-slate-800">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-white mb-2">Proyectos</h1>
-        <p className="text-gray-400">Gestiona y visualiza todos tus proyectos</p>
-      </div>
+    <div className="w-full h-full p-6 bg-linear-to-br from-slate-950 to-slate-800">
+      
+      <TituloPanel titulo="Proyectos" iconTypea={<BsBuildingCheck />}  description="Gestiona y visualiza todos tus proyectos"/>
 
       {proyectos.length === 0 ? (
         <div className="flex items-center justify-center h-96 bg-slate-800/50 rounded-lg border border-slate-700">
@@ -57,7 +58,7 @@ const Proyectos = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {proyectos.map((proyecto) => (
+          {proyectos.length>0 && proyectos.map((proyecto) => (
             <div
               key={proyecto._id}
               className="bg-slate-700/50 border border-slate-600 rounded-lg p-6 hover:bg-slate-700/70 transition-colors cursor-pointer group"

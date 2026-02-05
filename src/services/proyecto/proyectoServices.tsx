@@ -9,7 +9,7 @@ const ProyectoService = () => ({
   },
 
   getAll: async () => {
-    return await apiProyecto.get("",  {
+    return await apiProyecto.get< Proyecto []>("",  {
       withCredentials: true,
     });
   },
