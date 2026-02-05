@@ -4,11 +4,16 @@ import type { Proyecto } from "../../lib/types/Proyecto";
 import ProyectoService from "../../services/proyecto/proyectoServices";
 import TituloPanel from "../../components/organisms/tituloPanel";
 import { BsBuildingCheck } from "react-icons/bs";
+import FiltrosBusqueda from "../../components/organisms/FiltrosBusqueda";
 
 const Proyectos = () => {
   const [proyectos, setProyectos] = useState<Proyecto[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterRole, setFilterRole] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const proyectoService = ProyectoService();
 
@@ -51,6 +56,16 @@ const Proyectos = () => {
     <div className="w-full h-full p-6 bg-linear-to-br from-slate-950 to-slate-800">
       
       <TituloPanel titulo="Proyectos" iconTypea={<BsBuildingCheck />}  description="Gestiona y visualiza todos tus proyectos"/>
+      <FiltrosBusqueda
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        filterRole={filterRole}
+        onFilterChange={setFilterRole}
+        onAddUser={() => setIsModalOpen(true)}
+        placeholderInput="Buscar por el nombre del proyecto..."
+        options={["Todos los Estados","pending","completed", "canceled"]}
+        entidad="Usuario"
+      />
 
       {proyectos.length === 0 ? (
         <div className="flex items-center justify-center h-96 bg-slate-800/50 rounded-lg border border-slate-700">

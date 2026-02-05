@@ -72,6 +72,9 @@ const GestionUsuarios = () => {
         filterRole={filterRole}
         onFilterChange={setFilterRole}
         onAddUser={() => setIsModalOpen(true)}
+        placeholderInput="Buscar por usuario o email..."
+        options={["Todos los roles","user","admin"]}
+        entidad="Usuario"
       />
 
       <TablaUsuarios users={filteredData} loading={loading} error={error} />
